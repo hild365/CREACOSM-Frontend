@@ -1,0 +1,36 @@
+<div class="accueil-container">
+    <h1 class="title glitch">Escape Lab</h1>
+    <p class="description scan-effect">
+      🧪 Vous devez retrouver tous les <strong>ingrédients</strong> cachés dans les unités de conservation
+     avant la fin du temps imparti.  
+      Faites vite, chaque seconde compte ! ⏳
+    </p>
+  
+    <div class="button-container">
+    <button class="play-button animate-fade-in">Commencer</button>
+    <button class="play-button animate-fade-in"  (click)="openModal()">Comment jouer</button>
+    <button class="play-button animate-fade-in" (click)="openModalCredits()">Credits</button>
+    </div>
+
+    <div id="howToPlayModal" class="modal" [ngStyle]="{'display': displayModal ? 'block' : 'none'}">
+        <div class="modal-content">
+          <span class="close" (click)="closeModal()">&times;</span>
+          <h2>Jouez ainsi : </h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab cum harum consequatur voluptatem, eligendi eaque quis delectus distinctio! Repudiandae in modi vero. Beatae veritatis nemo a animi dolores nisi culpa.</p>
+        </div>
+    </div>
+
+    <div id="creditsModal" class="modal" [ngStyle]="{'display':displayModalCredits ? 'block': 'none'}">
+        <div class="modal-content">
+            <span class="close" (click)="closeModalCredits()">&times;</span>
+            <h2>Crédits </h2>
+            <ul>
+                <li><strong>Hild GOMADO</strong> </li>
+                <li><strong>Esteban DRAILY</strong> </li>
+                <li><strong>Vincent GONNET</strong></li>
+                <li><strong>Arthur GOUDAL</strong></li>
+            </ul>
+        </div>
+    </div>
+
+  </div>
