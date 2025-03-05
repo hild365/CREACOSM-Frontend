@@ -7,17 +7,8 @@
     </p>
   
     <div class="button-container">
-    <button class="play-button animate-fade-in">Commencer</button>
-    <button class="play-button animate-fade-in"  (click)="openModal()">Comment jouer</button>
+    <button class="play-button animate-fade-in" (click)="naviguerVersAnalyse()">Commencer</button>
     <button class="play-button animate-fade-in" (click)="openModalCredits()">Credits</button>
-    </div>
-
-    <div id="howToPlayModal" class="modal" [ngStyle]="{'display': displayModal ? 'block' : 'none'}">
-        <div class="modal-content">
-          <span class="close" (click)="closeModal()">&times;</span>
-          <h2>Jouez ainsi : </h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab cum harum consequatur voluptatem, eligendi eaque quis delectus distinctio! Repudiandae in modi vero. Beatae veritatis nemo a animi dolores nisi culpa.</p>
-        </div>
     </div>
 
     <div id="creditsModal" class="modal" [ngStyle]="{'display':displayModalCredits ? 'block': 'none'}">

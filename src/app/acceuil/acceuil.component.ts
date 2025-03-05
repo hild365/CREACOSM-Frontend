@@ -1,5 +1,6 @@
 import { NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-acceuil',
@@ -8,18 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './acceuil.component.scss'
 })
 export class AcceuilComponent {
-  // "Comment jouer" fenetre
-  displayModal: boolean = false;
-
-  openModal() {
-    this.displayModal = true;
-  }
-
-  closeModal() {
-    this.displayModal = false;
-  }
   // "Credits" fenetre
   displayModalCredits : boolean =false;
+
+  constructor(private router:Router){}
+
+  naviguerVersAnalyse(){
+    this.router.navigate(['/analyse']);
+  }
 
   openModalCredits() {
     this.displayModalCredits = true;
