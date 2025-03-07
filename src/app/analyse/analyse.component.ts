@@ -8,9 +8,11 @@ import {Router} from '@angular/router';
   styleUrl: './analyse.component.scss'
 })
 export class AnalyseComponent {
+  ongletCourant:string='analyse';
   constructor(private router:Router){}
   
   naviguerVers(page:string){
+    this.ongletCourant=page;
     this.router.navigate([`/${page}`]);
   }
 

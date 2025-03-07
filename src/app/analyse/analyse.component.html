@@ -1,9 +1,18 @@
-<div class="tabs">
-    <button (click)="naviguerVers('analyse')">Analyse</button>
-    <button (click)="naviguerVers('tableau')">Tableau</button>
-    <button (click)="naviguerVers('reponse')">Réponse</button>
+<div class="content">
+    <h2>Page Analyse</h2>
 </div>
 
-<div>
-    <h2>Page Analyse</h2>
+<div class="navbar">
+    <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
+        <i class="fas fa-flask"></i>
+        <span>Analyse</span>
+    </button>
+    <button (click)="naviguerVers('tableau')" [class.active]="ongletCourant === 'tableau'">
+        <i class="fas fa-table"></i>
+        <span>Tableau</span>
+    </button>
+    <button (click)="naviguerVers('reponse')" [class.active]="ongletCourant === 'reponse'">
+        <i class="fas fa-comments"></i>
+        <span>Réponse</span>
+    </button>
 </div>

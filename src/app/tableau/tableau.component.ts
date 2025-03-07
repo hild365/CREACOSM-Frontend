@@ -8,9 +8,11 @@ import { Router } from '@angular/router';
   styleUrl: './tableau.component.scss'
 })
 export class TableauComponent {
+    ongletCourant:string = 'tableau';
     constructor(private router:Router){}
     
     naviguerVers(page:string){
+      this.ongletCourant=page;
       this.router.navigate([`/${page}`]);
     }
 }

@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
   styleUrl: './reponse.component.scss'
 })
 export class ReponseComponent {
+    ongletCourant='reponse';
     constructor(private router:Router){}
     
     naviguerVers(page:string){
+      this.ongletCourant=page;
       this.router.navigate([`/${page}`]);
     }
 }
