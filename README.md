@@ -33,7 +33,11 @@ Pour installer et démarrer l'application en local, suivez ces étapes :
    ```bash
    npm start
    ```
-4. Ouvrez votre navigateur et accédez à `http://localhost:4200` pour voir l'application en action.
+5. Excutez angular :
+   ```bash
+   ng serve
+   ```
+6. Ouvrez votre navigateur et accédez à `http://localhost:4200` pour voir l'application en action.
 
 ## Composants Angular
 
