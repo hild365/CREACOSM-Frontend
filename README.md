@@ -24,7 +24,7 @@ Pour installer et démarrer l'application en local, suivez ces étapes :
     ```
 2. Accédez au répertoire du frontend :
     ```bash
-    cd ProjetSI-Creacosm/frontend
+    cd CREASCOSM-Frontend
     ```
 3. Installez les dépendances :
     ```bash
