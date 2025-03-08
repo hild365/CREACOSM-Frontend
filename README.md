@@ -41,6 +41,9 @@ Le composant `Accueil` est la page d'accueil de l'application. `Je rajouterai un
 ### Tableau- Réponse - Analyse
 
 Pour communiquer avec le serveur il vous faudra creer un `service` avec la commande ```bash ng generate service services/nom-du-service ```.
+J'ai crée une fentre modale qui est tuto qui apparait une seule fois lorsqu'on clique sur les onglets. Vous devrez modifiez le `tutorialContent` pour la partie contenu du tutoriel 
+dans chaque `component.ts`.
+
 
 ## Crédits
 
