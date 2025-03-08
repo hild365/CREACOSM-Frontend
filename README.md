@@ -33,7 +33,7 @@ Pour installer et démarrer l'application en local, suivez ces étapes :
    ```bash
    npm start
    ```
-5. Excutez angular :
+5. Ensuite executez angular :
    ```bash
    ng serve
    ```
