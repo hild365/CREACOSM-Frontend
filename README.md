@@ -10,7 +10,7 @@ Pour accéder au site sur votre téléphone, suivez les étapes suivantes :
 ```bash
 ng serve --host 0.0.0.0
 ```
-3. Dans la barre d'adresse, entrez l'URL : ``http::/votre-addresse-ip/4200`` (que vous retrouverez dans la partie network une fois que vous excuterez la commande ci dessus )
+3. Dans la barre d'adresse, entrez l'URL : ``http://votre-addresse-ip/4200`` (que vous retrouverez dans la partie network une fois que vous excuterez la commande ci dessus )
 4. Vous pouvez maintenant naviguer et utiliser l'application sur votre téléphone.
 
 ## Installation et démarrage en local (si vous voulez le voir en local )
