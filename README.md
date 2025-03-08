@@ -6,7 +6,7 @@
 Pour accéder au site sur votre téléphone, suivez les étapes suivantes :
 
 1. Assurez-vous que votre téléphone soit connecté aux même réseau que votre pc.
-2. Excuté la commande : 
+2. Executez la commande : 
 ```bash
 ng serve --host 0.0.0.0
 ```
