@@ -1,1 +1,8 @@
-<p>fenetre-tuto works!</p>
+<div class="modal" [ngStyle]="{'display': display ? 'block' : 'none'}">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>Tutoriel</h2>
+        <p>{{ tutorialContent }}</p>
+        <button class="button" (click)="closeModal()">Compris</button>
+    </div>
+</div>
