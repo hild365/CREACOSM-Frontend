@@ -20,7 +20,7 @@ Pour installer et démarrer l'application en local, suivez ces étapes :
 
 1. Clonez le dépôt du projet :
     ```bash
-    git clone https://github.com/votre-utilisateur/CREACOSM-Frontend.git
+    git clone https://github.com/hild365/CREACOSM-Frontend.git
     ```
 2. Accédez au répertoire du frontend :
     ```bash
