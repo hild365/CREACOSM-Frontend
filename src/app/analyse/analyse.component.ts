@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FenetreTutoComponent } from "../fenetre-tuto/fenetre-tuto.component";
 import { LocalStorageService } from '../services/local-storage.service';
+import { DragAndDropItemComponent } from "./drag-and-drop-item/drag-and-drop-item.component";
+import { NumberSelectorComponent } from './number-selector/number-selector.component';
 
 @Component({
   selector: 'app-analyse',
-  imports: [FenetreTutoComponent],
+  imports: [FenetreTutoComponent, DragAndDropItemComponent, NumberSelectorComponent],
   templateUrl: './analyse.component.html',
   styleUrls: ['./analyse.component.scss']
 })

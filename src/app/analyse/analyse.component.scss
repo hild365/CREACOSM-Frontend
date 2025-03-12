@@ -50,3 +50,14 @@
         font-size: 18px;
     }
 }
+.analyse-components {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments en colonne */
+    align-items: center; /* Centre les éléments horizontalement */
+    gap: 15px; /* Ajoute un espacement entre les éléments */
+    width: 100%; /* Pour s'assurer que le conteneur prend toute la largeur */
+}
+app-drag-and-drop-item {
+    width: 100%;
+    margin-top : 400px
+}
