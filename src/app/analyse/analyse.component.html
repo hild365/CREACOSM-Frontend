@@ -20,5 +20,6 @@
 <app-fenetre-tuto [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
 <div class="analyse-components">
     <app-drag-and-drop-item></app-drag-and-drop-item>
-    <app-number-selector></app-number-selector>
+    <app-number-selector [options]="etapeOptions"></app-number-selector>
+    <button (click)="simulate()" class="submit-button">Lancer la simulation</button>
 </div>

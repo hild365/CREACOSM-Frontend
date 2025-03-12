@@ -2,10 +2,10 @@
     display: flex;
     gap: 10px;
   }
-  
+
   .items-list {
     position: absolute;
-    top: 0;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     justify-content: center;
@@ -16,7 +16,7 @@
     border: 2px dashed transparent; /* Optionnel : peut aider à visualiser */
     padding: 50px;
   }
-  
+
   .test-list {
     position: absolute;
     top: 50%;
@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .example-box {
     width: 90px;
     height: 90px;
@@ -36,8 +36,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; 
+    text-align: center;
     border-radius: 5px;
     font-weight: bold;
   }
-  

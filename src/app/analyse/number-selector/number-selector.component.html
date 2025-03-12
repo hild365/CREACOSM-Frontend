@@ -1,2 +1,5 @@
-<label for="temperature">Température (°C) :</label>
-<input id="temperature" type="number" step="0.1" min="-50" max="100" class="temp-input" placeholder="°C">
+<div class="test-input-label">
+  <label for="temperature">{{options.label}}</label>
+  <input #numberInput [id]="options.id" type="number" [step]="options.step" [min]="options.min" [max]="options.max" [placeholder]="options.placeholder" (input)="onValueChange($event)" class="test-input" >
+
+</div>

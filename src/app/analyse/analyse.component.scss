@@ -15,7 +15,7 @@
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.navbar button {
+.navbar > button {
     background: none;
     border: none;
     color: #fff;
@@ -27,37 +27,63 @@
     transition: color 0.3s;
 }
 
-.navbar button i {
+.navbar > button i {
     font-size: 20px;
     margin-bottom: 5px;
 }
 
-.navbar button.active {
+.navbar > button.active {
     color: #007bff;
 }
 
-.navbar button:hover {
+.navbar > button:hover {
     color: #007bff;
 }
 
 /* Responsive styles */
 @media (max-width: 600px) {
-    .navbar button {
+    .navbar > button {
         font-size: 12px;
     }
 
-    .navbar button i {
+    .navbar > button i {
         font-size: 18px;
     }
 }
-.analyse-components {
-    display: flex;
-    flex-direction: column; /* Aligne les éléments en colonne */
-    align-items: center; /* Centre les éléments horizontalement */
-    gap: 15px; /* Ajoute un espacement entre les éléments */
-    width: 100%; /* Pour s'assurer que le conteneur prend toute la largeur */
-}
+
 app-drag-and-drop-item {
     width: 100%;
     margin-top : 400px
+}
+
+.submit-button {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: 2px solid #00ffcc;
+  background: transparent;
+  color: #00ffcc;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #00ffcc;
+
+}
+
+
+.submit-button:hover {
+  background: #00ffcc;
+  color: #000;
+  box-shadow: 0 0 20px #00ffff;
+  animation: buttonGlitch 0.5s infinite alternate;
+}
+
+.submit-button:focus {
+  outline: none;
+  background: #00ffcc;
+  color: #000;
+  box-shadow: 0 0 20px #00ffff;
 }

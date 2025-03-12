@@ -8,8 +8,11 @@ import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from 
   styleUrl: './drag-and-drop-item.component.scss'
 })
 export class DragAndDropItemComponent {
-  items=["Beurre karité", "Aloe Vera"]
+  items=["Beurre de karité", "Aloe Vera", "Extrait de fleurs"]
   test: string[]=[]
+  getList(){
+    return this.test;
+  }
   canDrop = () => this.test.length < 1;
   drop(event: CdkDragDrop<string[]>){
     if (!event.previousContainer || !event.container) return;
