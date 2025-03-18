@@ -1,5 +1,7 @@
 # ProjetSI-Creacosm Frontend
 
+## Charte graphique
+#3D64A5
 
 ## Accès au site sur téléphone
 

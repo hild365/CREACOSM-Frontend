@@ -1,25 +1,30 @@
-<div class="content">
-    <h2>Page Analyse</h2>
-</div>
+<div class="page-container">
+    <h2 class="title glitch">Page Analyse</h2>
+    <div class="analyse-components">
+      <app-drag-and-drop-item></app-drag-and-drop-item>
+      <app-change-test (testChange)="changeTest()"></app-change-test>
+      <app-number-selector [options]="etapeOptions"></app-number-selector>
+      <div class="button-container">
+        <button (click)="simulate()" class="submit-button button-glitch">Lancer la simulation</button>
+      </div>
+    </div>
+  <div class="navbar">
+      <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
+          <i class="fas fa-flask"></i>
+          <span>Analyse</span>
+      </button>
+      <button (click)="naviguerVers('tableau')" [class.active]="ongletCourant === 'tableau'">
+          <i class="fas fa-table"></i>
+          <span>Tableau</span>
+      </button>
+      <button (click)="naviguerVers('reponse')" [class.active]="ongletCourant === 'reponse'">
+          <i class="fas fa-comments"></i>
+          <span>Réponse</span>
+      </button>
+  </div>
 
-<div class="navbar">
-    <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
-        <i class="fas fa-flask"></i>
-        <span>Analyse</span>
-    </button>
-    <button (click)="naviguerVers('tableau')" [class.active]="ongletCourant === 'tableau'">
-        <i class="fas fa-table"></i>
-        <span>Tableau</span>
-    </button>
-    <button (click)="naviguerVers('reponse')" [class.active]="ongletCourant === 'reponse'">
-        <i class="fas fa-comments"></i>
-        <span>Réponse</span>
-    </button>
-</div>
-<!-- fenetre modale qui n'apparait qu'une seule fois pour presenter le tuto -->
-<app-fenetre-tuto [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
-<div class="analyse-components">
-    <app-drag-and-drop-item></app-drag-and-drop-item>
-    <app-number-selector [options]="etapeOptions"></app-number-selector>
-    <button (click)="simulate()" class="submit-button">Lancer la simulation</button>
+  <!-- fenetre modale qui n'apparait qu'une seule fois pour presenter le tuto -->
+  <app-fenetre-tuto [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
+
+
 </div>

@@ -9,12 +9,11 @@
     left: 50%;
     transform: translateX(-50%);
     justify-content: center;
-    width: 400px; /* Augmenter la largeur si nécessaire */
+    width: 90%; /* Augmenter la largeur si nécessaire */
     height: 150px; /* Augmenter la hauteur pour une plus grande hitbox */
     display: flex;
     align-items: center; /* Pour centrer les items verticalement */
-    border: 2px dashed transparent; /* Optionnel : peut aider à visualiser */
-    padding: 50px;
+    padding: 5%;
   }
 
   .test-list {
@@ -24,7 +23,7 @@
     transform: translate(-50%, -50%);
     width: 100px; /* Taille fixe */
     height: 100px; /* Hauteur fixe */
-    border: 2px solid black;
+    border: 2px solid var(--blue);
     justify-content: center;
     align-items: center;
   }
@@ -32,11 +31,17 @@
   .example-box {
     width: 90px;
     height: 90px;
-    background-color: lightblue;
+    background-color: var(--blue);
+    color: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 5px;
     font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+  }
+  .example-box:hover {
+    background-color: var(--blue-secondary);
+    box-shadow: 0 0 10px var(--blue-secondary);
   }

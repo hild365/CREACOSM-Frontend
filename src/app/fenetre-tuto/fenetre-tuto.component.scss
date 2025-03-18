@@ -62,3 +62,33 @@
     color: black;
     border: 2px solid #4CAF50;
 }
+
+
+
+  /* Additional styles for modal content */
+  .modal-content h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  .modal-content p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  .modal-content p, .modal-content ul {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .modal-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .modal-content ul li {
+    margin-bottom: 10px;
+  }
+

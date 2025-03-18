@@ -1,19 +1,17 @@
-<div class="accueil-container">
+<div class="page-container">
     <h1 class="title glitch">Escape Lab</h1>
     <p class="description scan-effect">
       🧪 Vous devez retrouver tous les <strong>ingrédients</strong> cachés dans les unités de conservation
-     avant la fin du temps imparti.  
+     avant la fin du temps imparti.
       Faites vite, chaque seconde compte ! ⏳
     </p>
 
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     <div class="button-container">
-    <input type="text" placeholder="Entrez le code du groupe " [(ngModel)]="code" class="code-input"/>
-    <button class="play-button animate-fade-in" (click)="naviguerVersAnalyse()">Commencer</button>
-    <button class="play-button animate-fade-in" (click)="openModalCredits()">Credits</button>
+      <input type="text" placeholder="Entrez le code du groupe " [(ngModel)]="code" class="code-input animate-fade-in"/>
+      <button class="play-button button-glitch animate-fade-in" (click)="naviguerVersAnalyse()">Commencer</button>
+      <button class="play-button button-glitch animate-fade-in" (click)="openModalCredits()">Credits</button>
     </div>
-
-    
 
     <div id="creditsModal" class="modal" [ngStyle]="{'display':displayModalCredits ? 'block': 'none'}">
         <div class="modal-content">
@@ -28,4 +26,4 @@
         </div>
     </div>
 
-  </div>
+</div>

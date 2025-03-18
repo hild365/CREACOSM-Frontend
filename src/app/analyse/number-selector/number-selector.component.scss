@@ -6,12 +6,12 @@
     padding: 12px 18px;
     font-size: 1rem;
     font-family: 'Arial', sans-serif;
-    border: 2px solid #00ffcc;
+    border: 2px solid var(--blue);
     background: transparent;
-    color: #00ffcc;
+    color: var(--blue);
     border-radius: 10px;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+    box-shadow: 0 0 5px var(--blue-secondary);
     transition: 0.3s ease; /* Pour une transition fluide */
   }
   .test-input-label{
@@ -23,19 +23,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 50%;
   }
 
-  .temp-input:focus {
-    border-color: #0056b3;
+  .test-input:focus {
+    border-color: var(--blue-secondary);
   }
 
 
 .test-input-label label {
   font-size: 1.2rem;
-  color: #00ffcc;
+  color: var(--blue);
   margin-bottom: 8px;
-
   text-align: center;
   letter-spacing: 1px;
 }
