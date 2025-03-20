@@ -17,19 +17,39 @@ export class AnalyseComponent implements OnInit {
   ongletCourant: string = 'analyse';
   displayModal: boolean = false;
   tutorialContent: string = 'Bienvenue sur la page analyse ...';
-  @ViewChild(DragAndDropItemComponent) dnd!: DragAndDropItemComponent;
-  @ViewChild(NumberSelectorComponent) numberSelector!: NumberSelectorComponent;
+  erreur: string = "";
+  @ViewChild(DragAndDropItemComponent) dnd_comp!: DragAndDropItemComponent; //pour pouvoir remplir la liste d'item et l'objet mis en test
+  @ViewChild(NumberSelectorComponent) numberSelector_comp!: NumberSelectorComponent; //pour connaitre l'unité et le test en cours donné
 
-  etapeOptions: SelectorOptions={
-    label:'Température (°c)',
-    id: 'temperature',
-    min: -50,
-    max: 100,
-    step: 1,
-    placeholder: "°c"
-  }
+  lesTypesDeTest = [
+    {
+      label:'Température (°c)',
+      id: 'temperature',
+      min: -50,
+      max: 100,
+      step: 1,
+      placeholder: "°c"
+    },
+    {
+      label:'Lumière (lx)',
+      id: 'lumiere',
+      min: 0,
+      max: 1000,
+      step: 1,
+      placeholder: "lx"
+    },
+    {
+      label:'Humidité (%HR)',
+      id: 'humidite',
+      min: 0,
+      max: 100,
+      step: 1,
+      placeholder: "%HR"
+    }];
 
-
+  paramEtape: SelectorOptions=this.lesTypesDeTest[0]
+  currentTestIndex = 0;
+  currentTestType = this.lesTypesDeTest[this.currentTestIndex]["id"];
 
   constructor( private router: Router, private localStorage: LocalStorageService) {}
 
@@ -46,52 +66,24 @@ export class AnalyseComponent implements OnInit {
     this.router.navigate([`/${page}`]);
   }
 
-  testTypes = [
-    {
-      label:'Température (°c)',
-      id: 'temperature',
-      min: -50,
-      max: 100,
-      step: 1,
-      placeholder: "°c"
-    },
-    {
-      label:'Lumière (lux)',
-      id: 'lumiere',
-      min: 0,
-      max: 1000,
-      step: 1,
-      placeholder: "lux"
-    },
-    {
-      label:'Humidité (h)',
-      id: 'humidite',
-      min: 0,
-      max: 100,
-      step: 1,
-      placeholder: "h"
-    }];
-  currentTestIndex = 0;
-  currentTestType = this.testTypes[this.currentTestIndex]["id"];
-
   changeTest(){
-    this.currentTestIndex = (this.currentTestIndex+1)%this.testTypes.length;
-    this.currentTestType = this.testTypes[this.currentTestIndex]["id"];
-    this.etapeOptions=this.testTypes[this.currentTestIndex];
-    console.log(this.etapeOptions);
+    this.currentTestIndex = (this.currentTestIndex+1)%this.lesTypesDeTest.length;
+    this.currentTestType = this.lesTypesDeTest[this.currentTestIndex]["id"];
+    this.paramEtape=this.lesTypesDeTest[this.currentTestIndex];
+    this.erreur=""
   }
 
   simulate(){
-    const valueTest =this.numberSelector.getValue();
-    const itemList=this.dnd.getList()
+    const valueTest =this.numberSelector_comp.getValue();
+    const itemList=this.dnd_comp.getTestList()
     if (itemList.length === 0) {
-      console.log('Veuillez ajouter des éléments à analyser');
+      this.erreur="Veuillez ajouter des éléments à analyser";
       return;
     }
     if (valueTest === null || Number.isNaN(valueTest)) {
-      console.log('Veuillez renseigner la valeur du test');
+      this.erreur="Veuillez renseigner la valeur du test"
       return;
     }
-    console.log(`Simulation du test ${this.currentTestType} avec la valeur ${valueTest} et les éléments ${itemList}`);
+    this.erreur=`Simulation du test ${this.currentTestType} avec la valeur ${valueTest} et les éléments ${itemList}`;
   }
 }

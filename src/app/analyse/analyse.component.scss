@@ -10,7 +10,6 @@
 .button-container{
   bottom: 10%;
   position : absolute;
-
 }
 
 /* Responsive styles */
@@ -23,6 +22,10 @@
         font-size: 18px;
     }
 
+}
+app-change-test{
+  bottom: 20%;
+  position : absolute;
 }
 
 app-drag-and-drop-item {
