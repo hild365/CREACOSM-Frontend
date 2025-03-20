@@ -10,7 +10,8 @@ import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from 
 export class DragAndDropItemComponent {
   items=["Beurre de karité", "Aloe Vera", "Extrait de fleurs"]
   test: string[]=[]
-  getList(){
+
+  getTestList(){
     return this.test;
   }
   canDrop = () => this.test.length < 1;
