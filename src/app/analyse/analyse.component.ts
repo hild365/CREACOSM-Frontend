@@ -6,14 +6,16 @@ import { DragAndDropItemComponent } from "./drag-and-drop-item/drag-and-drop-ite
 import { ChangeTestComponent } from "./change-test/change-test.component";
 import { NumberSelectorComponent } from './number-selector/number-selector.component';
 import { SelectorOptions } from './models/selector-options';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-analyse',
-  imports: [FenetreTutoComponent, DragAndDropItemComponent, ChangeTestComponent, NumberSelectorComponent],
+  imports: [ FenetreTutoComponent, DragAndDropItemComponent, ChangeTestComponent, NumberSelectorComponent],
   templateUrl: './analyse.component.html',
   styleUrls: ['./analyse.component.scss']
 })
 export class AnalyseComponent implements OnInit {
+  donnees: any[] = [];
   ongletCourant: string = 'analyse';
   displayModal: boolean = false;
   tutorialContent: string = 'Bienvenue sur la page analyse ...';
@@ -51,7 +53,7 @@ export class AnalyseComponent implements OnInit {
   currentTestIndex = 0;
   currentTestType = this.lesTypesDeTest[this.currentTestIndex]["id"];
 
-  constructor( private router: Router, private localStorage: LocalStorageService) {}
+  constructor( private router: Router, private localStorage: LocalStorageService, private apiService: ApiService) {}
 
   //permet de faire apparaitre qu'une seule fois la fenetre modale !!!
   ngOnInit() {
@@ -59,6 +61,19 @@ export class AnalyseComponent implements OnInit {
       this.displayModal = true;
       this.localStorage.setElement('tutorielDejaVuAnalyse', true);
     }
+    this.chargerDonnees();
+  }
+  chargerDonnees() {
+    this.apiService.get('/get-ingredients').subscribe(
+      (data: any) => {
+        this.donnees = data;
+        console.log('Données chargées :', this.donnees);
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des données', error);
+      }
+    );
+    // Vous pouvez ensuite exécuter des opérations ligne par ligne dans this.donnees
   }
 
   naviguerVers(page: string) {
