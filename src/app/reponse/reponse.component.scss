@@ -1,52 +1,55 @@
-/* Styles for the content */
-.content {
-    padding-bottom: 60px; /* Space for the navbar */
-}
-
-/* Styles for the navbar */
-.navbar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #1a1a1a;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.navbar button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    display: flex;
+.page-container{
+    flex: auto;
+    flex-wrap:wrap;
     flex-direction: column;
+    display:flex;
     align-items: center;
-    cursor: pointer;
-    transition: color 0.3s;
+    justify-content: center;
+    height:100vh;
 }
 
-.navbar button i {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
+.container {
+    display: flex;
+    gap: 10px;
+  }
 
-.navbar button.active {
-    color: #007bff;
-}
+  .items-list {
+    justify-content: center;
+    width: 90%; /* Augmenter la largeur si nécessaire */
+    height: 150px; /* Augmenter la hauteur pour une plus grande hitbox */
+    display: flex;
+    align-items: center; /* Pour centrer les items verticalement */
+    padding: 5%;
+    flex: auto;
+    flex-wrap:wrap;
+  }
 
-.navbar button:hover {
-    color: #007bff;
-}
+  .test-list {
+    width: 100px; /* Taille fixe */
+    height: 100px; /* Hauteur fixe */
+    border: 2px solid var(--blue);
+    justify-content: center;
+    align-items: center;
+  }
 
-/* Responsive styles */
-@media (max-width: 600px) {
-    .navbar button {
-        font-size: 12px;
-    }
-
-    .navbar button i {
-        font-size: 18px;
-    }
-}
+  .example-box {
+    width: 90px;
+    height: 90px;
+    background-color: var(--blue);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+  }
+  .example-box:hover {
+    background-color: var(--blue-secondary);
+    box-shadow: 0 0 10px var(--blue-secondary);
+  }
+  .submit-button {
+    position: relative;
+    bottom: 10%;
+  }

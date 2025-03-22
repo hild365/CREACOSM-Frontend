@@ -59,6 +59,8 @@ html, body {
     transition: 0.3s;
     box-shadow: 0 0 10px var(--blue);
     overflow:hidden;
+    padding: 15px 30px;
+    border: 2px solid var(--blue);
   }
 
   /* Animation glitch sur le bouton */
@@ -127,9 +129,6 @@ html, body {
 
 /* Styles for the navbar */
 .navbar {
-  position: absolute;
-  bottom: 0;
-  left:0;
   width: 100%;
   background-color: #1a1a1a;
   display: flex;

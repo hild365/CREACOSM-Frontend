@@ -1,16 +1,67 @@
-<p>reponse works!</p>
-<div class="navbar">
-    <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
-        <i class="fas fa-flask"></i>
-        <span>Analyse</span>
-    </button>
-    <button (click)="naviguerVers('tableau')" [class.active]="ongletCourant === 'tableau'">
-        <i class="fas fa-table"></i>
-        <span>Tableau</span>
-    </button>
-    <button (click)="naviguerVers('reponse')" [class.active]="ongletCourant === 'reponse'">
-        <i class="fas fa-comments"></i>
-        <span>Réponse</span>
-    </button>
+<div class="page-container">
+
+    <h2 class="title glitch">Page Resultat</h2>
+
+    <div class="result-lists">
+
+        <div class="container items-list" cdkDropList #itemsList="cdkDropList"
+        [cdkDropListData]="items"
+        [cdkDropListConnectedTo]="[frigoList, armoireVentileeList, armoireVitreeList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropListOrientation="horizontal">
+            @for (item of items; track item) {
+                <div class="example-box" cdkDrag>{{item}}</div>
+            }
+        </div>
+
+        <div class="container test-list" cdkDropList #frigoList="cdkDropList"
+        [cdkDropListData]="frigo"
+        [cdkDropListConnectedTo]="[itemsList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropListOrientation="horizontal">
+        frigo
+            @for (item of frigo; track item) {
+            <div class="example-box" cdkDrag>{{item}}</div>
+            }
+        </div>
+        <div class="container test-list" cdkDropList #armoireVentileeList="cdkDropList"
+        [cdkDropListData]="armoireVentilee"
+        [cdkDropListConnectedTo]="[itemsList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropListOrientation="horizontal">
+        Armoire Ventilee
+            @for (item of armoireVentilee; track item) {
+            <div class="example-box" cdkDrag>{{item}}</div>
+            }
+        </div>
+        <div class="container test-list" cdkDropList #armoireVitreeList="cdkDropList"
+        [cdkDropListData]="armoireVitree"
+        [cdkDropListConnectedTo]="[itemsList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropListOrientation="horizontal">
+        Armoire Vitree
+            @for (item of armoireVitree; track item) {
+            <div class="example-box" cdkDrag>{{item}}</div>
+            }
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="submit-button button-glitch">Valider les reponses</button>
+    </div>
+
+    <div class="navbar">
+        <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
+            <i class="fas fa-flask"></i>
+            <span>Analyse</span>
+        </button>
+        <button (click)="naviguerVers('tableau')" [class.active]="ongletCourant === 'tableau'">
+            <i class="fas fa-table"></i>
+            <span>Tableau</span>
+        </button>
+        <button (click)="naviguerVers('reponse')" [class.active]="ongletCourant === 'reponse'">
+            <i class="fas fa-comments"></i>
+            <span>Réponse</span>
+        </button>
+    </div>
+    <app-fenetre-tuto  [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
 </div>
-<app-fenetre-tuto  [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
