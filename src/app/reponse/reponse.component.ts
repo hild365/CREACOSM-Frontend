@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FenetreTutoComponent } from '../fenetre-tuto/fenetre-tuto.component';
 import { LocalStorageService } from '../services/local-storage.service';
 import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { ApiService } from '../services/api.service';
 
 
 @Component({
@@ -19,14 +20,28 @@ export class ReponseComponent implements OnInit {
   armoireVentilee: string[]=[]
   armoireVitree: string[]=[]
   tutorialContent: string = 'Bienvenue sur la page réponse....';
+  donnees: any[] = [];
 
-  constructor(private router: Router, private localStorage: LocalStorageService) {}
+  constructor(private router: Router, private localStorage: LocalStorageService, private apiService: ApiService) {}
 
   ngOnInit() {
     if (!this.localStorage.estDisponible("tutorielDejaVuReponse")) {
       this.displayModal = true;
       this.localStorage.setElement('tutorielDejaVuReponse', true);
     }
+    this.chargerDonnees();
+  }
+  chargerDonnees() {
+    this.apiService.get('/get-ingredients').subscribe(
+      (data: any) => {
+        this.donnees = data;
+        console.log('Données chargées :', this.donnees);
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des données', error);
+      }
+    );
+    // Vous pouvez ensuite exécuter des opérations ligne par ligne dans this.donnees
   }
 
   drop(event: CdkDragDrop<string[]>){
@@ -42,7 +57,9 @@ export class ReponseComponent implements OnInit {
       );
     }
   }
+  checkResult(){
 
+  }
   naviguerVers(page: string) {
     this.ongletCourant = page;
     this.router.navigate([`/${page}`]);

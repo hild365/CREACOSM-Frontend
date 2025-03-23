@@ -64,7 +64,7 @@ export class AnalyseComponent implements OnInit {
     this.chargerDonnees();
   }
   chargerDonnees() {
-    this.apiService.get('/get-ingredients').subscribe(
+    this.apiService.post('get-ingredients',{'group': this.localStorage.getElement('Code')}).subscribe(
       (data: any) => {
         this.donnees = data;
         console.log('Données chargées :', this.donnees);
@@ -99,6 +99,8 @@ export class AnalyseComponent implements OnInit {
       this.erreur="Veuillez renseigner la valeur du test"
       return;
     }
+    //simulation du test
+    //this.apiService.post('/analyse-ingredients',)
     this.erreur=`Simulation du test ${this.currentTestType} avec la valeur ${valueTest} et les éléments ${itemList}`;
   }
 }
