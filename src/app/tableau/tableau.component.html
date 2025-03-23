@@ -1,4 +1,4 @@
-<div class="table-container">
+<div class="page-container">
   <h1 class="title glitch">Résultats de vos analyses</h1>
 
   <div id="ingredients-list-container">
@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let decouverte of currentIngredient.discoveredTable">
+        <tr *ngFor="let decouverte of currentIngredient.discoveredTable" [ngClass]="decouverte.condition">
           <td>{{ decouverte.condition }}</td>
           <td>{{ decouverte.lowerBound }} {{ decouverte.unit }}</td>
           <td>{{ decouverte.upperBound }} {{ decouverte.unit }}</td>
