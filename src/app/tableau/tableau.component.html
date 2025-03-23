@@ -1,18 +1,51 @@
+<div class="page-container">
+  <h1 class="title glitch">Résultats de vos analyses</h1>
 
-<h1>Page Tableau</h1>
+  <div id="ingredients-list-container">
+    <ul id="ingredients-list">
+      <li *ngFor="let ingredient of ingredientsDiscoveries" (click)="selectIngredient(ingredient)">
+        <button [class.active]="ingredient.id === currentIngredient.id">
+          {{ ingredient.label }}
+        </button>
+      </li>
+    </ul>
+  </div>
 
-<div class="navbar">
+  <div *ngIf="currentIngredient.id !== -1" id="ingredient-details">
+    <h2>{{ currentIngredient.label }}</h2>
+    <table id="details-table">
+      <thead>
+        <tr>
+          <th>Analyse</th>
+          <th>Valeur basse</th>
+          <th>Valeur haute</th>
+          <th>Résultat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let decouverte of currentIngredient.discoveredTable" [ngClass]="decouverte.condition">
+          <td>{{ decouverte.condition }}</td>
+          <td>{{ decouverte.lowerBound }} {{ decouverte.unit }}</td>
+          <td>{{ decouverte.upperBound }} {{ decouverte.unit }}</td>
+          <td>{{ decouverte.message }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="navbar">
     <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
-        <i class="fas fa-flask"></i>
-        <span>Analyse</span>
+      <i class="fas fa-flask"></i>
+      <span>Analyse</span>
     </button>
     <button (click)="naviguerVers('tableau')" [class.active]="ongletCourant === 'tableau'">
-        <i class="fas fa-table"></i>
-        <span>Tableau</span>
+      <i class="fas fa-table"></i>
+      <span>Tableau</span>
     </button>
     <button (click)="naviguerVers('reponse')" [class.active]="ongletCourant === 'reponse'">
-        <i class="fas fa-comments"></i>
-        <span>Réponse</span>
+      <i class="fas fa-comments"></i>
+      <span>Réponse</span>
     </button>
+  </div>
 </div>
 <app-fenetre-tuto [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
