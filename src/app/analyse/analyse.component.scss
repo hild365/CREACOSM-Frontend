@@ -1,52 +1,51 @@
-/* Styles for the content */
-.content {
-    padding-bottom: 60px; /* Space for the navbar */
+.analyse-components {
+  width: 100%;
+  height: calc(100% - 60px); /* Ajustez la hauteur pour tenir compte de la navbar */
+  overflow: hidden; /* Enlever la barre de défilement interne */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
-/* Styles for the navbar */
-.navbar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #1a1a1a;
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.navbar button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.navbar button i {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.navbar button.active {
-    color: #007bff;
-}
-
-.navbar button:hover {
-    color: #007bff;
+.button-container{
+  bottom: 10%;
+  position : absolute;
 }
 
 /* Responsive styles */
 @media (max-width: 600px) {
-    .navbar button {
+   .navbar > button {
         font-size: 12px;
     }
 
-    .navbar button i {
+    .navbar > button i {
         font-size: 18px;
     }
+
 }
+app-change-test{
+  bottom: 20%;
+  position : absolute;
+}
+
+app-drag-and-drop-item {
+    width: 100%;
+    margin-top : 400px
+}
+
+.submit-button {
+  position: relative;
+  bottom: 10%;
+  padding: 15px 30px;
+  border: 2px solid var(--blue);
+  cursor: pointer;
+}
+
+  @keyframes glitch {
+    0% { transform: skewX(0deg); }
+    20% { transform: skewX(-5deg); }
+    40% { transform: skewX(5deg); }
+    60% { transform: skewX(-3deg); }
+    80% { transform: skewX(3deg); }
+    100% { transform: skewX(0deg); }
+  }
