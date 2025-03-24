@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HttpClient } from '@angular/common/http';
 import { LocalStorageService } from '../services/local-storage.service';
+import { ApiService } from '../services/api.service';
+
 
 @Component({
   selector: 'app-acceuil',
@@ -16,7 +18,7 @@ export class AcceuilComponent {
   displayModalCredits : boolean =false;
   errorMessage: string='';
 
-  constructor(private http: HttpClient ,private router:Router,private localStore: LocalStorageService){}
+  constructor(private http: HttpClient ,private router:Router,private localStore: LocalStorageService, private apiService: ApiService ){}
 
   ngOnInit(){
     this.localStore.setElement('codeId',"1");
@@ -35,7 +37,7 @@ export class AcceuilComponent {
 
     // Envoi du code de la partie au back et gestion d'erreurs etc plus redirection vers la page analayse en cas de succès 
     const body={code: this.code};
-     this.http.post('http://localhost:3000/start-game', body, { headers: { 'Content-Type': 'application/json' } })
+     this.apiService.startGame(this.code)
        .subscribe({
          next: response => {
            console.log('Game started successfully', response);

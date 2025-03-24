@@ -36,7 +36,7 @@ export class AnalyseComponent implements OnInit {
     },
     {
       label:'Luminosité (lx)',
-      id: 'luminosite',
+      id: 'luminosité',
       min: 0,
       max: 1000,
       step: 1,

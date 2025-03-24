@@ -4,7 +4,7 @@
   <div id="ingredients-list-container">
     <ul id="ingredients-list">
       <li *ngFor="let ingredient of ingredientsDiscoveries" (click)="selectIngredient(ingredient)">
-        <button [class.active]="ingredient.id === currentIngredient.id">
+        <button class="submit-button" [class.active]="ingredient.id === currentIngredient.id">
           {{ ingredient.label }}
         </button>
       </li>
