@@ -29,13 +29,31 @@
     justify-content: center;
     align-items: center;
   }
+  @media (max-width: 600px) {
+    .example-box{
+      width:60px;
+      height:auto;
+      font-size: smaller;
+    }
+  }
 
+  @media (min-width: 600px) {
+    .example-box{
+      width:100px;
+      height:auto;
+    }
+  }
   .example-box {
-    width: 90px;
-    height: 90px;
+    span{
+      word-wrap: break-word; /* Force le retour à la ligne */
+      overflow-wrap: break-word; /* Alternative pour assurer le comportement */
+      white-space: normal; /* Permet les retours à la ligne */
+      max-width: 100%; /* Évite que le texte dépasse la box */
+    }
     background-color: var(--blue);
     color: var(--white);
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -43,6 +61,8 @@
     font-weight: bold;
     transition: background-color 0.2s ease-in-out;
   }
+
+
   .example-box:hover {
     background-color: var(--blue-secondary);
     box-shadow: 0 0 10px var(--blue-secondary);

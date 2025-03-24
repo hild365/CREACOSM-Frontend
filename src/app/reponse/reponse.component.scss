@@ -1,16 +1,15 @@
-/* *{
-  border: 1px solid red;
-}
-   */
+
+   
 .title{
   display:flex;
   box-sizing: border-box;
+  position:absolute;
+  top: 10%;
 }
  
 
 .container {
     display: flex;
-    gap: 10px;
   }
 
 .result-container{
@@ -34,39 +33,73 @@
     box-sizing: border-box;
     flex: auto;
     flex-wrap:wrap;
+    gap:10px;
   }
 
   .stockage-container{
-    padding: 5%;
     width:40%;
+    height:100%;
     display:flex;
     flex-direction:column;
     align-items: center;
+    justify-content: space-between;
     box-sizing: border-box;
-    gap:5px;
   }
 
   .test-list {
     width: 100px; /* Taille fixe */
     height: 100px; /* Hauteur fixe */
     border: 2px solid var(--blue);
-    justify-content: center;
-    align-items: center;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
-
-  .example-box {
-    width: 90px;
-    aspect-ratio: 1/1;
+ 
+  .origin-box {
+    span{
+      word-wrap: break-word; /* Force le retour à la ligne */
+      overflow-wrap: break-word; /* Alternative pour assurer le comportement */
+      white-space: normal; /* Permet les retours à la ligne */
+      max-width: 100%; /* Évite que le texte dépasse la box */
+    }
+    width: 100px;
+    height: auto;
+    //aspect-ratio: 1/1;
     background-color: var(--blue);
     color: var(--white);
     display: flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.2s ease-in-out;
+    padding: 5px;
   }
+  .destination-box{
+    width:50px;
+    height:50px;
+    box-sizing:border-box;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 600px) {
+    .origin-box{
+      width:70px;
+      height:auto;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .origin-box{
+      width:100px;
+      height:auto;
+    }
+  }
+
   .example-box:hover {
     background-color: var(--blue-secondary);
     box-shadow: 0 0 10px var(--blue-secondary);
@@ -78,3 +111,25 @@
   .found{
     background-color: green;
   }
+  
+.stockage-title {
+  text-align: center; /* Centrer le titre */
+  margin-bottom: 10px; /* Espacer le titre du container */
+}
+
+  .stockage-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Même largeur que le container */
+    box-sizing: border-box;
+}
+.navbar{
+  position: absolute;
+  bottom:0%;
+}
+
+.button-container{
+  bottom: 10%;
+  position : absolute;
+}
