@@ -23,14 +23,6 @@ export class AnalyseComponent implements OnInit {
   donnees: any[] = [];
   ongletCourant: string = 'analyse';
   displayModal: boolean = false;
-<<<<<<< Updated upstream
-  tutorialContent: string = `Bienvenue sur la page analyse. Ici vous pouvez tester les ingrédients dans différentes conditions. 
-    Faites glisser les ingrédients dans la case centrale, réglez la valeur du test et lancez la simulation.
-    Une fois l'analyse terminée, vous retrouverez le résultat dans la page tableau.`;
-  erreur: string = '';
-  group: string = '';
-  resultatTest: any[] = [];
-=======
   tutorialContent: string = 'Bienvenue sur la page analyse ...';
   erreur: string = "";
   group: string ="";
@@ -38,7 +30,6 @@ export class AnalyseComponent implements OnInit {
   paramEtape: SelectorOptions = {label:'', id:'', min:0, max:0, step:0, placeholder:''};
   currentTestIndex: number = 0;
   currentTestType: string = "";
->>>>>>> Stashed changes
   @ViewChild(DragAndDropItemComponent) dnd_comp!: DragAndDropItemComponent; //pour pouvoir remplir la liste d'item et l'objet mis en test
   @ViewChild(NumberSelectorComponent)
   numberSelector_comp!: NumberSelectorComponent; //pour connaitre l'unité et le test en cours donné
@@ -70,13 +61,7 @@ export class AnalyseComponent implements OnInit {
     },
   ];
 
-<<<<<<< Updated upstream
-  paramEtape: SelectorOptions = this.lesTypesDeTest[0];
-  currentTestIndex = 0;
-  currentTestType = this.lesTypesDeTest[this.currentTestIndex]['id'];
-=======
   
->>>>>>> Stashed changes
 
   constructor(
     private router: Router,
@@ -86,9 +71,6 @@ export class AnalyseComponent implements OnInit {
 
   //permet de faire apparaitre qu'une seule fois la fenetre modale !!!
   ngOnInit() {
-<<<<<<< Updated upstream
-    if (!this.localStorage.estDisponible('tutorielDejaVuAnalyse')) {
-=======
     if(!this.localStorage.estDisponible("currentTestType")){
       this.paramEtape=this.lesTypesDeTest[0]
       this.currentTestIndex = 0;
@@ -102,7 +84,6 @@ export class AnalyseComponent implements OnInit {
       this.currentTestType = this.localStorage.getElement("currentTestType") as string;
     }
     if (!this.localStorage.estDisponible("tutorielDejaVuAnalyse")) {
->>>>>>> Stashed changes
       this.displayModal = true;
       this.localStorage.setElement('tutorielDejaVuAnalyse', true);
     }
@@ -130,15 +111,6 @@ export class AnalyseComponent implements OnInit {
     this.router.navigate([`/${page}`]);
   }
 
-<<<<<<< Updated upstream
-  changeTest() {
-    this.currentTestIndex =
-      (this.currentTestIndex + 1) % this.lesTypesDeTest.length;
-    this.currentTestType = this.lesTypesDeTest[this.currentTestIndex]['id'];
-    this.paramEtape = this.lesTypesDeTest[this.currentTestIndex];
-    this.erreur = '';
-    this.resultatTest = [];
-=======
   changeTest(){
     this.currentTestIndex = (this.currentTestIndex+1)%this.lesTypesDeTest.length;
     this.currentTestType = this.lesTypesDeTest[this.currentTestIndex]["id"];
@@ -148,7 +120,6 @@ export class AnalyseComponent implements OnInit {
     this.localStorage.setElement("currentTestType", this.currentTestType);
     this.localStorage.setElement("paramEtape", this.paramEtape);
     this.localStorage.setElement("currentTestIndex", this.currentTestIndex);
->>>>>>> Stashed changes
   }
 
   simulate() {
