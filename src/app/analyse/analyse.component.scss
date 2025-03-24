@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+.title{
+  position: absolute;
+  top: 5%;
+}
 .button-container{
   bottom: 10%;
   position : absolute;
@@ -37,4 +41,8 @@ app-drag-and-drop-item {
 .submit-button {
   position: relative;
   bottom: 10%;
+}
+.copyrights{
+  position:absolute;
+  bottom: 7%;
 }
