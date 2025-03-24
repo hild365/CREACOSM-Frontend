@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -8,8 +8,8 @@ import { CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem } from 
   styleUrl: './drag-and-drop-item.component.scss'
 })
 export class DragAndDropItemComponent {
-  items=["Beurre de karité", "Aloe Vera", "Extrait de fleurs", "Acide Citrique", "Parfum"]
-  test: string[]=[]
+  @Input() items!: any[];
+  test: any[]=[]
 
   getTestList(){
     return this.test;

@@ -20,21 +20,23 @@ export class AnalyseComponent implements OnInit {
   displayModal: boolean = false;
   tutorialContent: string = 'Bienvenue sur la page analyse ...';
   erreur: string = "";
+  group: string ="";
+  resultatTest: any []=[];
   @ViewChild(DragAndDropItemComponent) dnd_comp!: DragAndDropItemComponent; //pour pouvoir remplir la liste d'item et l'objet mis en test
   @ViewChild(NumberSelectorComponent) numberSelector_comp!: NumberSelectorComponent; //pour connaitre l'unité et le test en cours donné
 
   lesTypesDeTest = [
     {
       label:'Température (°c)',
-      id: 'temperature',
+      id: 'température',
       min: -50,
       max: 100,
       step: 1,
       placeholder: "°c"
     },
     {
-      label:'Lumière (lx)',
-      id: 'lumiere',
+      label:'Luminosité (lx)',
+      id: 'luminosite',
       min: 0,
       max: 1000,
       step: 1,
@@ -42,7 +44,7 @@ export class AnalyseComponent implements OnInit {
     },
     {
       label:'Humidité (%HR)',
-      id: 'humidite',
+      id: 'humidité',
       min: 0,
       max: 100,
       step: 1,
@@ -61,10 +63,14 @@ export class AnalyseComponent implements OnInit {
       this.displayModal = true;
       this.localStorage.setElement('tutorielDejaVuAnalyse', true);
     }
+    if (!this.localStorage.estDisponible("Code")) {
+      this.router.navigate(['/']);
+    }
+    this.group=this.localStorage.getElement("Code") as string;
     this.chargerDonnees();
   }
   chargerDonnees() {
-    this.apiService.post('get-ingredients',{'group': this.localStorage.getElement('Code')}).subscribe(
+    this.apiService.getIngredients(this.group).subscribe(
       (data: any) => {
         this.donnees = data;
         console.log('Données chargées :', this.donnees);
@@ -90,7 +96,7 @@ export class AnalyseComponent implements OnInit {
 
   simulate(){
     const valueTest =this.numberSelector_comp.getValue();
-    const itemList=this.dnd_comp.getTestList()
+    const itemList=this.dnd_comp.getTestList();
     if (itemList.length === 0) {
       this.erreur="Veuillez ajouter des éléments à analyser";
       return;
@@ -100,7 +106,15 @@ export class AnalyseComponent implements OnInit {
       return;
     }
     //simulation du test
-    //this.apiService.post('/analyse-ingredients',)
-    this.erreur=`Simulation du test ${this.currentTestType} avec la valeur ${valueTest} et les éléments ${itemList}`;
+    this.apiService.analyzeIngredient(this.group, itemList[0].id, this.currentTestType, valueTest).subscribe(
+      (data: any) => {
+        this.resultatTest = data.text;
+        console.log('Résultat du test:', this.resultatTest);
+      },
+      (error) => {
+        console.error('Erreur lors de la simulation du test veuillez réessayer', error);
+      }
+    );
+
   }
 }

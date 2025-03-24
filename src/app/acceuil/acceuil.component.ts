@@ -27,7 +27,7 @@ export class AcceuilComponent {
       this.errorMessage="Le code doit être un numéro";
       return
     }
-    
+
     // Envoi du code de la partie au back et gestion d'erreurs etc plus redirection vers la page analayse en cas de succès 
     const body={code: this.code};
      this.http.post('http://localhost:3000/start-game', body, { headers: { 'Content-Type': 'application/json' } })

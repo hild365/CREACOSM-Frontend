@@ -4,50 +4,68 @@
 
     <div class="result-container">
 
-        <div class="container items-list" cdkDropList #itemsList="cdkDropList"
-        [cdkDropListData]="items"
-        [cdkDropListConnectedTo]="[frigoList, armoireVentileeList, armoireVitreeList]"
+        <div class="container items-list" cdkDropList 
+        #itemsList="cdkDropList"
+        [cdkDropListData]="donnees"
+        [cdkDropListConnectedTo]="[frigoList, etagereList, placardList]"
         (cdkDropListDropped)="drop($event)"
         cdkDropListOrientation="horizontal">
-            @for (item of items; track item) {
-                <div class="example-box" cdkDrag>{{item}}</div>
+            @for (item of donnees; track item) {
+                <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
             }
         </div>
+        
         <div class="stockage-container">
-            <div class="container test-list" cdkDropList #frigoList="cdkDropList"
-            [cdkDropListData]="frigo"
-            [cdkDropListConnectedTo]="[itemsList]"
-            (cdkDropListDropped)="drop($event)"
-            cdkDropListOrientation="horizontal">
-            frigo
-                @for (item of frigo; track item) {
-                <div class="example-box" cdkDrag>{{item}}</div>
-                }
-            </div>
-            <div class="container test-list" cdkDropList #armoireVentileeList="cdkDropList"
-            [cdkDropListData]="armoireVentilee"
-            [cdkDropListConnectedTo]="[itemsList]"
-            (cdkDropListDropped)="drop($event)"
-            cdkDropListOrientation="horizontal">
-            Armoire Ventilee
-                @for (item of armoireVentilee; track item) {
-                <div class="example-box" cdkDrag>{{item}}</div>
-                }
-            </div>
-            <div class="container test-list" cdkDropList #armoireVitreeList="cdkDropList"
-            [cdkDropListData]="armoireVitree"
-            [cdkDropListConnectedTo]="[itemsList]"
-            (cdkDropListDropped)="drop($event)"
-            cdkDropListOrientation="horizontal">
-            Armoire Vitree
-                @for (item of armoireVitree; track item) {
-                <div class="example-box" cdkDrag>{{item}}</div>
-                }
-            </div>
+                <div class="container test-list" cdkDropList #frigoList="cdkDropList"
+                [cdkDropListData]="frigo"
+                [cdkDropListConnectedTo]="[itemsList, etagereList, placardList]"
+                (cdkDropListDropped)="drop($event)"
+                cdkDropListOrientation="horizontal">
+                Frigo
+                    @for (item of frigo; track item) {
+                        @if(item.correct){
+                            <div class="example-box found" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                        }  @else {
+                        <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                        }
+                    }
+                </div>
         </div>
+        <div class="stockage-container">
+            <div class="container test-list" cdkDropList #etagereList="cdkDropList"
+            [cdkDropListData]="etagere"
+            [cdkDropListConnectedTo]="[itemsList, frigoList, placardList]"
+            (cdkDropListDropped)="drop($event)"
+            cdkDropListOrientation="horizontal">
+            Étagère
+                @for (item of etagere; track item) {
+                    @if(item.correct){
+                        <div class="example-box found" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                    }  @else {
+                    <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                    }
+                }
+            </div>
+    </div>
+    <div class="stockage-container">
+        <div class="container test-list" cdkDropList #placardList="cdkDropList"
+        [cdkDropListData]="placard"
+        [cdkDropListConnectedTo]="[itemsList, frigoList, etagereList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropListOrientation="horizontal">
+        Placard fermé
+            @for (item of placard; track item) {
+                @if(item.correct){
+                    <div class="example-box found" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                }  @else {
+                <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                }
+            }
+        </div>
+</div>
     </div>
     <div class="button-container">
-        <button class="submit-button button-glitch">Valider les reponses</button>
+        <button (click)="checkResult()" class="submit-button button-glitch">Valider les reponses</button>
     </div>
 
     <div class="navbar">
