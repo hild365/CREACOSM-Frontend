@@ -1,76 +1,67 @@
 <div class="page-container">
 
-   <h2 class="title glitch">Page Resultat</h2>
-   <div class="result-container">
+    <h2 class="title glitch">Page Resultat</h2>
+    <div class="result-container">
 
-        <div class="container items-list" cdkDropList 
-        #itemsList="cdkDropList"
-        [cdkDropListData]="donnees"
-        [cdkDropListConnectedTo]="[frigoList, etagereList, placardList]"
-        (cdkDropListDropped)="drop($event)"
-        cdkDropListOrientation="horizontal">
+        <div class="container items-list" cdkDropList #itemsList="cdkDropList" [cdkDropListData]="donnees"
+            [cdkDropListConnectedTo]="[frigoList, etagereList, placardList]" (cdkDropListDropped)="drop($event)"
+            cdkDropListOrientation="horizontal">
             @for (item of donnees; track item) {
-                <div class="origin-box" cdkDrag><img src="assets/images/{{item.image}}"/><span>{{item.label}}</span></div>
+            <div class="origin-box" cdkDrag><img src="assets/images/{{item.image}}" /><span>{{item.label}}</span></div>
             }
         </div>
-        
+
         <div class="stockage-container">
             <div class="stockage-wrapper">
                 <p class="stockage-title">Frigo</p>
-            <div class="container test-list" cdkDropList #frigoList="cdkDropList"
-            [cdkDropListData]="frigo"
-            [cdkDropListConnectedTo]="[itemsList, etagereList, placardList]"
-            (cdkDropListDropped)="drop($event)"
-            cdkDropListOrientation="horizontal">
-            
-                @for (item of frigo; track item) {
+                <div class="container test-list" cdkDropList #frigoList="cdkDropList" [cdkDropListData]="frigo"
+                    [cdkDropListConnectedTo]="[itemsList, etagereList, placardList]" (cdkDropListDropped)="drop($event)"
+                    cdkDropListOrientation="horizontal">
+
+                    @for (item of frigo; track item) {
                     @if(item.correct){
-                        <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}"/></div>
-                    }  @else {
-                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}"/></div>
+                    <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                    } @else {
+                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
                     }
-                }
-            </div>
+                    }
+                </div>
             </div>
             <div class="stockage-wrapper">
                 <p class="stockage-title">Étagère</p>
-            <div class="container test-list" cdkDropList #etagereList="cdkDropList"
-            [cdkDropListData]="etagere"
-            [cdkDropListConnectedTo]="[itemsList, frigoList, placardList]"
-            (cdkDropListDropped)="drop($event)"
-            cdkDropListOrientation="horizontal">
-            
-                @for (item of etagere; track item) {
+                <div class="container test-list" cdkDropList #etagereList="cdkDropList" [cdkDropListData]="etagere"
+                    [cdkDropListConnectedTo]="[itemsList, frigoList, placardList]" (cdkDropListDropped)="drop($event)"
+                    cdkDropListOrientation="horizontal">
+
+                    @for (item of etagere; track item) {
                     @if(item.correct){
-                        <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}"/></div>
-                    }  @else {
-                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}"/></div>
+                    <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                    } @else {
+                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
                     }
-                }
-            </div>
+                    }
+                </div>
             </div>
             <div class="stockage-wrapper">
-            <p class="stockage-title">Placard fermé</p>
-            <div class="container test-list" cdkDropList #placardList="cdkDropList"
-            [cdkDropListData]="placard"
-            [cdkDropListConnectedTo]="[itemsList, frigoList, etagereList]"
-            (cdkDropListDropped)="drop($event)"
-            cdkDropListOrientation="horizontal">
-                @for (item of placard; track item) {
+                <p class="stockage-title">Placard fermé</p>
+                <div class="container test-list" cdkDropList #placardList="cdkDropList" [cdkDropListData]="placard"
+                    [cdkDropListConnectedTo]="[itemsList, frigoList, etagereList]" (cdkDropListDropped)="drop($event)"
+                    cdkDropListOrientation="horizontal">
+                    @for (item of placard; track item) {
                     @if(item.correct){
-                        <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}"/></div>
-                    }  @else {
-                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}"/></div>
+                    <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                    } @else {
+                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
                     }
-                }
+                    }
+                </div>
             </div>
-        </div>
         </div>
     </div>
     <div class="button-container">
-        <button (click)="checkResult()" class="submit-button button-glitch">Valider les reponses</button>
+        <button (click)="validerReponses()" class="submit-button button-glitch">Valider les reponses</button>
     </div>
-  <div class="copyrights">Toutes les images proviennent de <a href="https://www.pngegg.com/fr">PngEgg</a>.</div>
+    <div class="copyrights">Toutes les images proviennent de <a href="https://www.pngegg.com/fr">PngEgg</a>.</div>
 
     <div class="navbar">
         <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
@@ -86,5 +77,5 @@
             <span>Réponse</span>
         </button>
     </div>
-    <app-fenetre-tuto  [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
+    <app-fenetre-tuto [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
 </div>
