@@ -1,30 +1,34 @@
 <div class="page-container">
-    <h1 class="title glitch">Escape Lab</h1>
-    <p class="description scan-effect">
-      🧪 Vous devez retrouver tous les <strong>ingrédients</strong> cachés dans les unités de conservation
-     avant la fin du temps imparti.
-      Faites vite, chaque seconde compte ! ⏳
-    </p>
-    
-    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
-    <div class="button-container">
-      <!--<input type="text" placeholder="Entrez le code du groupe " [(ngModel)]="code" class="code-input animate-fade-in"/>
-    -->
-      <button class="play-button button-glitch animate-fade-in" (click)="naviguerVersAnalyse()">Commencer</button>
-      <button class="play-button button-glitch animate-fade-in" (click)="openModalCredits()">Credits</button>
-    </div>
+  <h1 class="title glitch">Escape Lab</h1>
+  <p class="description scan-effect">
+    Lorsque l'on conçoit des produits cosmétiques, il est important de ranger les ingrédients au bon
+    endroit.<br>
+    Chaque ingrédient est sensible et a ses propres conditions de conservation. Durant ce défi, vous allez devoir
+    retrouver les endroits où sont conservés différents produits.<br>
+    À l'aide de l'outil d'analyse et du tableau de notes, croisez les informations et assignez à chaque ingrédient son
+    environnement de stockage.<br>
+    ⏳ Faites vite, chaque seconde compte ! ⏳
+  </p>
 
-    <div id="creditsModal" class="modal" [ngStyle]="{'display':displayModalCredits ? 'block': 'none'}">
-        <div class="modal-content">
-            <span class="close" (click)="closeModalCredits()">&times;</span>
-            <h2>Crédits </h2>
-            <ul>
-                <li><strong>Hild GOMADO</strong> </li>
-                <li><strong>Esteban DRAILY</strong> </li>
-                <li><strong>Vincent GONNET</strong></li>
-                <li><strong>Arthur GOUDAL</strong></li>
-            </ul>
-        </div>
+  <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  <div class="button-container">
+    <!--<input type="text" placeholder="Entrez le code du groupe " [(ngModel)]="code" class="code-input animate-fade-in"/>
+    -->
+    <button class="play-button button-glitch animate-fade-in" (click)="naviguerVersAnalyse()">Commencer</button>
+    <button class="play-button button-glitch animate-fade-in" (click)="openModalCredits()">Credits</button>
+  </div>
+
+  <div id="creditsModal" class="modal" [ngStyle]="{'display':displayModalCredits ? 'block': 'none'}">
+    <div class="modal-content">
+      <span class="close" (click)="closeModalCredits()">&times;</span>
+      <h2>Crédits </h2>
+      <ul>
+        <li><strong>Hild GOMADO</strong> </li>
+        <li><strong>Esteban DRAILY</strong> </li>
+        <li><strong>Vincent GONNET</strong></li>
+        <li><strong>Arthur GOUDAL</strong></li>
+      </ul>
     </div>
+  </div>
 
 </div>

@@ -26,7 +26,8 @@ export class ReponseComponent implements OnInit {
   etagere: any[] = [];
   placard: any[] = [];
 
-  tutorialContent: string = 'Bienvenue sur la page réponse....';
+  tutorialContent: string =
+    'Bienvenue sur la page réponse. Associez ici les ingrédients à leur stockage, grâce aux indices trouvés et notés dans le tableau.';
   donnees: any[] = [];
   donneesValidation: any;
   group: string = '';
