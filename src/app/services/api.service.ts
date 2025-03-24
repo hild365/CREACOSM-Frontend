@@ -9,12 +9,16 @@ import { response } from "express";
 })
 export class ApiService {
 
+
     private url = "http://localhost:3000";
 
     private routes = {
         getDiscoveredTable: "get-discovered-table",
         getIngredients: "get-ingredients",
         startGame: "start-game",
+        analyzeIngredient: "analyze-ingredient",
+        tryStorage: "try-storage",
+        getStorages: "get-storages",
     };
 
     constructor(private http: HttpClient) {}
@@ -58,6 +62,23 @@ export class ApiService {
     getIngredients(group: string): Observable<any> {
         return this.post(`${this.routes.getIngredients}`, {
             group
+        });
+    }
+    getStorages(): Observable<any> {
+        return this.get(`${this.routes.getStorages}`);
+    }
+    analyzeIngredient(group: string, ingredientId: string,condition: string, value:string): Observable<any> {
+        return this.post(`${this.routes.analyzeIngredient}`, {
+            group,
+            ingredientId,
+            condition,
+            value
+        });
+    }
+    tryStorage(storageId: string, ingredientId: string): Observable<any> {
+        return this.post(`${this.routes.tryStorage}`, {
+            ingredientId,
+            storageId
         });
     }
 

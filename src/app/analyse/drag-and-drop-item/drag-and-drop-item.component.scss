@@ -8,12 +8,12 @@
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
-    justify-content: center;
     width: 90%; /* Augmenter la largeur si nécessaire */
     height: 150px; /* Augmenter la hauteur pour une plus grande hitbox */
-    display: flex;
-    align-items: center; /* Pour centrer les items verticalement */
     padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Pour centrer les items verticalement */
     flex: auto;
     flex-wrap:wrap;
   }

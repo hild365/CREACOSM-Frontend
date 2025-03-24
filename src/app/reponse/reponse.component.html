@@ -1,16 +1,87 @@
-<p>reponse works!</p>
-<div class="navbar">
-    <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
-        <i class="fas fa-flask"></i>
-        <span>Analyse</span>
-    </button>
-    <button (click)="naviguerVers('tableau')" [class.active]="ongletCourant === 'tableau'">
-        <i class="fas fa-table"></i>
-        <span>Tableau</span>
-    </button>
-    <button (click)="naviguerVers('reponse')" [class.active]="ongletCourant === 'reponse'">
-        <i class="fas fa-comments"></i>
-        <span>Réponse</span>
-    </button>
+<div class="page-container">
+
+   <h2 class="title glitch">Page Resultat</h2>
+
+    <div class="result-container">
+
+        <div class="container items-list" cdkDropList 
+        #itemsList="cdkDropList"
+        [cdkDropListData]="donnees"
+        [cdkDropListConnectedTo]="[frigoList, etagereList, placardList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropListOrientation="horizontal">
+            @for (item of donnees; track item) {
+                <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+            }
+        </div>
+        
+        <div class="stockage-container">
+                <div class="container test-list" cdkDropList #frigoList="cdkDropList"
+                [cdkDropListData]="frigo"
+                [cdkDropListConnectedTo]="[itemsList, etagereList, placardList]"
+                (cdkDropListDropped)="drop($event)"
+                cdkDropListOrientation="horizontal">
+                Frigo
+                    @for (item of frigo; track item) {
+                        @if(item.correct){
+                            <div class="example-box found" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                        }  @else {
+                        <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                        }
+                    }
+                </div>
+        </div>
+        <div class="stockage-container">
+            <div class="container test-list" cdkDropList #etagereList="cdkDropList"
+            [cdkDropListData]="etagere"
+            [cdkDropListConnectedTo]="[itemsList, frigoList, placardList]"
+            (cdkDropListDropped)="drop($event)"
+            cdkDropListOrientation="horizontal">
+            Étagère
+                @for (item of etagere; track item) {
+                    @if(item.correct){
+                        <div class="example-box found" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                    }  @else {
+                    <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                    }
+                }
+            </div>
+    </div>
+    
+    <div class="stockage-container">
+        <div class="container test-list" cdkDropList #placardList="cdkDropList"
+        [cdkDropListData]="placard"
+        [cdkDropListConnectedTo]="[itemsList, frigoList, etagereList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropListOrientation="horizontal">
+        Placard fermé
+            @for (item of placard; track item) {
+                @if(item.correct){
+                    <div class="example-box found" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                }  @else {
+                <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/>{{item.label}}</div>
+                }
+            }
+        </div>
 </div>
-<app-fenetre-tuto  [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
+    </div>
+    <div class="button-container">
+        <button (click)="checkResult()" class="submit-button button-glitch">Valider les reponses</button>
+    </div>
+
+    <div class="navbar">
+        <button (click)="naviguerVers('analyse')" [class.active]="ongletCourant === 'analyse'">
+            <i class="fas fa-flask"></i>
+            <span>Analyse</span>
+        </button>
+        <button (click)="naviguerVers('tableau')" [class.active]="ongletCourant === 'tableau'">
+            <i class="fas fa-table"></i>
+            <span>Tableau</span>
+        </button>
+        <button (click)="naviguerVers('reponse')" [class.active]="ongletCourant === 'reponse'">
+            <i class="fas fa-comments"></i>
+            <span>Réponse</span>
+        </button>
+    </div>
+    <app-fenetre-tuto  [display]="displayModal" [tutorialContent]="tutorialContent"></app-fenetre-tuto>
+</div>

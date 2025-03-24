@@ -30,19 +30,19 @@ export class AcceuilComponent {
 
     // Envoi du code de la partie au back et gestion d'erreurs etc plus redirection vers la page analayse en cas de succès 
     const body={code: this.code};
-    // this.http.post('http://localhost:3000/start-game', body, { headers: { 'Content-Type': 'application/json' } })
-    //   .subscribe({
-    //     next: response => {
-    //       console.log('Game started successfully', response);
-    //       this.localStore.setElement('Code', this.code);
+     this.http.post('http://localhost:3000/start-game', body, { headers: { 'Content-Type': 'application/json' } })
+       .subscribe({
+         next: response => {
+           console.log('Game started successfully', response);
+           this.localStore.setElement('Code', this.code);
 
-    //       this.router.navigate(['/analyse']);
-    //     },
-    //     error: error => {
-    //       console.error('Error starting game', error);
-    //       this.errorMessage = 'Erreur lors du démarrage de la partie. Veuillez réessayer.';
-    //     }
-    //   });
+           this.router.navigate(['/analyse']);
+         },
+         error: error => {
+           console.error('Error starting game', error);
+           this.errorMessage = 'Erreur lors du démarrage de la partie. Veuillez réessayer.';
+         }
+       });
     this.router.navigate(['/analyse']);
   }
 
