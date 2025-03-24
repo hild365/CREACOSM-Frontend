@@ -19,11 +19,13 @@
                     cdkDropListOrientation="horizontal">
 
                     @for (item of frigo; track item) {
-                    @if(item.correct){
-                    <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}" /></div>
-                    } @else {
-                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
-                    }
+                        @if(item.correct){
+                            <div class="destination-box good-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        } @else if (item.correct==false){
+                            <div class="destination-box wrong-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        } @else {
+                            <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        }
                     }
                 </div>
             </div>
@@ -34,11 +36,13 @@
                     cdkDropListOrientation="horizontal">
 
                     @for (item of etagere; track item) {
-                    @if(item.correct){
-                    <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}" /></div>
-                    } @else {
-                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
-                    }
+                        @if(item.correct){
+                            <div class="destination-box good-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        } @else if (item.correct==false){
+                            <div class="destination-box wrong-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        } @else {
+                            <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        }
                     }
                 </div>
             </div>
@@ -48,11 +52,13 @@
                     [cdkDropListConnectedTo]="[itemsList, frigoList, etagereList]" (cdkDropListDropped)="drop($event)"
                     cdkDropListOrientation="horizontal">
                     @for (item of placard; track item) {
-                    @if(item.correct){
-                    <div class="destination-box found" cdkDrag><img src="assets/images/{{item.image}}" /></div>
-                    } @else {
-                    <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
-                    }
+                        @if(item.correct){
+                            <div class="destination-box good-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        } @else if (item.correct==false){
+                            <div class="destination-box wrong-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        } @else {
+                            <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                        }
                     }
                 </div>
             </div>

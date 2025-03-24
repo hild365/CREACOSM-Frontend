@@ -74,7 +74,7 @@ export class ReponseComponent implements OnInit {
     );
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -90,6 +90,7 @@ export class ReponseComponent implements OnInit {
         event.currentIndex
       );
     }
+    event.container.data[event.currentIndex].correct=null;
   }
 
   validerReponses() {
@@ -120,6 +121,7 @@ export class ReponseComponent implements OnInit {
             item.correct = true;
             this.donneesValidation.delete(item);
           } else {
+            item.correct = false;
           }
         },
         (error) => {

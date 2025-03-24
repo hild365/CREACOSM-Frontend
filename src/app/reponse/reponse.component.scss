@@ -128,8 +128,11 @@
     width: 100%;
   }
 }
-.found {
+.good-guess {
   background-color: green;
+}
+.wrong-guess {
+  background-color: red;
 }
 
 .stockage-title {

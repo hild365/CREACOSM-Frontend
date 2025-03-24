@@ -14,6 +14,7 @@
   transform: translateX(-50%);
   width: 100%;
   z-index: 1000;
+  
 }
 
 #ingredients-list {
@@ -44,6 +45,12 @@
   border-color: #007bff;
   color: white;
   font-weight: bold;
+}
+#ingredient-details{
+  position:absolute;
+  top: 25%;
+  left:50%;
+  transform: translateX(-50%);
 }
 
 #ingredient-details table {
