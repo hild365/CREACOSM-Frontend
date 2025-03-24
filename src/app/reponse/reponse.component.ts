@@ -101,15 +101,14 @@ export class ReponseComponent implements OnInit {
       this.checkResult();
       button.classList.remove('loading');
     }, this.TIMER_CHECK_RESULT);
+    
+    console.log('données restantes', this.donneesValidation);
   }
 
   checkResult() {
     this.checkStorage(this.frigo, 'Frigo');
     this.checkStorage(this.etagere, 'Étagère');
     this.checkStorage(this.placard, 'Placard fermé');
-    if (this.donneesValidation.size === 0) {
-      alert("Bravo ! Vous avez trouvé l'emplacement de tous les ingrédients !");
-    }
   }
   checkStorage(storage: any, name: string) {
     const id = this.storages.find((storage) => storage.label == name).id;
@@ -120,6 +119,9 @@ export class ReponseComponent implements OnInit {
           if (data.correct) {
             item.correct = true;
             this.donneesValidation.delete(item);
+            if (this.donneesValidation.size == 0) {
+              this.naviguerVers('victoire');
+            }
           } else {
             item.correct = false;
           }
@@ -129,6 +131,7 @@ export class ReponseComponent implements OnInit {
         }
       );
     }
+    
   }
 
   naviguerVers(page: string) {
