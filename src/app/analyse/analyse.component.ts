@@ -63,10 +63,10 @@ export class AnalyseComponent implements OnInit {
       this.displayModal = true;
       this.localStorage.setElement('tutorielDejaVuAnalyse', true);
     }
-    if (!this.localStorage.estDisponible("Code")) {
+    if (!this.localStorage.estDisponible("codeId")) {
       this.router.navigate(['/']);
     }
-    this.group=this.localStorage.getElement("Code") as string;
+    this.group=this.localStorage.getElement("codeId") as string;
     this.chargerDonnees();
   }
   chargerDonnees() {
@@ -92,16 +92,20 @@ export class AnalyseComponent implements OnInit {
     this.currentTestType = this.lesTypesDeTest[this.currentTestIndex]["id"];
     this.paramEtape=this.lesTypesDeTest[this.currentTestIndex];
     this.erreur=""
+    this.resultatTest=[]
   }
 
   simulate(){
+    this.erreur="";
     const valueTest =this.numberSelector_comp.getValue();
     const itemList=this.dnd_comp.getTestList();
     if (itemList.length === 0) {
+      this.resultatTest=[];
       this.erreur="Veuillez ajouter des éléments à analyser";
       return;
     }
     if (valueTest === null || Number.isNaN(valueTest)) {
+      this.resultatTest=[];
       this.erreur="Veuillez renseigner la valeur du test"
       return;
     }

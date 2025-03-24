@@ -33,10 +33,10 @@ export class ReponseComponent implements OnInit {
       this.displayModal = true;
       this.localStorage.setElement('tutorielDejaVuReponse', true);
     }
-    if (!this.localStorage.estDisponible("Code")) {
+    if (!this.localStorage.estDisponible("codeId")) {
       this.router.navigate(['/']);
     }
-    this.group=this.localStorage.getElement("Code") as string;
+    this.group=this.localStorage.getElement("codeId") as string;
     this.chargerDonnees();
   }
   

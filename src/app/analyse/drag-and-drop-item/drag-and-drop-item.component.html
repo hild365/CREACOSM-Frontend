@@ -5,7 +5,7 @@
        (cdkDropListDropped)="drop($event)"
        cdkDropListOrientation="horizontal">
     @for (item of items; track item) {
-      <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/><span>{{item.label}}</span></div>
+      <div class="origin-box" cdkDrag><img src="assets/images/{{item.image}}"/><span>{{item.label}}</span></div>
     }
   </div>
   <div class="container test-list" cdkDropList #testList="cdkDropList"
@@ -15,6 +15,6 @@
        [cdkDropListEnterPredicate]="canDrop"
        cdkDropListOrientation="horizontal">
     @for (item of test; track item) {
-      <div class="example-box" cdkDrag><img src="assets/images/{{item.image}}"/><span>{{item.label}}</span></div>
+      <div class="destination-box" cdkDrag><img src="assets/images/{{item.image}}"/></div>
     }
   </div>

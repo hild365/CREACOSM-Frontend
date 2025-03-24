@@ -18,6 +18,11 @@ export class AcceuilComponent {
 
   constructor(private http: HttpClient ,private router:Router,private localStore: LocalStorageService){}
 
+  ngOnInit(){
+    this.localStore.setElement('codeId',"1");
+    this.code=this.localStore.getElement('codeId')||"";
+  }
+
   naviguerVersAnalyse(){
     if(this.code===''){
       this.errorMessage="Vous devez saisir le code de votre groupe !"
@@ -34,7 +39,7 @@ export class AcceuilComponent {
        .subscribe({
          next: response => {
            console.log('Game started successfully', response);
-           this.localStore.setElement('Code', this.code);
+           this.localStore.setElement('codeId', this.code);
 
            this.router.navigate(['/analyse']);
          },

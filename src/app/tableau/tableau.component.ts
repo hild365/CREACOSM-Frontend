@@ -26,14 +26,14 @@ export class TableauComponent implements OnInit{
     constructor(private router: Router, private localStorage: LocalStorageService, private apiService : ApiService) {}
     
     ngOnInit() {
-        const tutorielDejaVu = sessionStorage.getItem('tutorielDejaVuTableau') || 'false';
+        const tutorielDejaVu = this.localStorage.getElement('tutorielDejaVuTableau') || 'false';
         if (tutorielDejaVu === 'false') {
             this.displayModal = true;
-            sessionStorage.setItem('tutorielDejaVuTableau', 'true');
+            this.localStorage.setElement('tutorielDejaVuTableau', 'true');
         }
-		const codeId = sessionStorage.getItem('codeId') || '';
-        const savedIngredient = sessionStorage.getItem('currentIngredient');
-        this.currentIngredient = savedIngredient ? JSON.parse(savedIngredient) : { id: -1 };
+		const codeId: string = this.localStorage.getElement('codeId') || '';
+        const savedIngredient = this.localStorage.getElement('currentIngredient');
+        this.currentIngredient = savedIngredient ? JSON.parse(savedIngredient as string) : { id: -1 };
 
         this.apiService.getIngredients(codeId).subscribe({
             next: (ingredients: any[]) => {            
@@ -74,7 +74,7 @@ export class TableauComponent implements OnInit{
     }
 
 	selectIngredient(ingredient: any) {
-		sessionStorage.setItem('currentIngredient', JSON.stringify(ingredient));
+		this.localStorage.setElement('currentIngredient', JSON.stringify(ingredient));
 		this.currentIngredient = ingredient;
 	}
     

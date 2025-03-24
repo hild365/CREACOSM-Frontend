@@ -2,9 +2,9 @@
     <h2 class="title glitch">Page Analyse</h2>
     <div class="analyse-components">
       <app-drag-and-drop-item [items]="donnees"></app-drag-and-drop-item>
+      <div class="erreur">{{ erreur }}</div>
       <div class="resultat-test">{{resultatTest}}</div>
       <app-number-selector [options]="paramEtape"></app-number-selector>
-      <div class="erreur">{{ erreur }}</div>
       <app-change-test (testChange)="changeTest()"></app-change-test>
       <div class="button-container">
         <button (click)="simulate()" class="submit-button button-glitch">Lancer la simulation</button>

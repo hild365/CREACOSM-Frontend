@@ -30,7 +30,7 @@
     align-items: center;
   }
   @media (max-width: 600px) {
-    .example-box{
+    .origin-box{
       width:60px;
       height:auto;
       font-size: smaller;
@@ -38,12 +38,12 @@
   }
 
   @media (min-width: 600px) {
-    .example-box{
+    .origin-box{
       width:100px;
       height:auto;
     }
   }
-  .example-box {
+  .origin-box {
     span{
       word-wrap: break-word; /* Force le retour à la ligne */
       overflow-wrap: break-word; /* Alternative pour assurer le comportement */
@@ -61,6 +61,15 @@
     font-weight: bold;
     transition: background-color 0.2s ease-in-out;
   }
+  .destination-box{
+    width:80px;
+    height:auto;
+    box-sizing:border-box;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 
 
   .example-box:hover {

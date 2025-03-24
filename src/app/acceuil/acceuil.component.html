@@ -8,7 +8,8 @@
     
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     <div class="button-container">
-      <input type="text" placeholder="Entrez le code du groupe " [(ngModel)]="code" class="code-input animate-fade-in"/>
+      <!--<input type="text" placeholder="Entrez le code du groupe " [(ngModel)]="code" class="code-input animate-fade-in"/>
+    -->
       <button class="play-button button-glitch animate-fade-in" (click)="naviguerVersAnalyse()">Commencer</button>
       <button class="play-button button-glitch animate-fade-in" (click)="openModalCredits()">Credits</button>
     </div>
