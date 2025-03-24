@@ -31,7 +31,7 @@ Pour installer et démarrer l'application en local, suivez ces étapes :
     ```bash
     npm install
     ```
-4. Pour executer en la commande `ng` en globale :
+4. Pour executer la commande `ng` en globale :
    ```bash
    npm start
    ```
