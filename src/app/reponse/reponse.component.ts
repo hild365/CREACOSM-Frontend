@@ -48,6 +48,7 @@ export class ReponseComponent implements OnInit {
     }
     if (!this.localStorage.estDisponible('codeId')) {
       this.router.navigate(['/']);
+      return;
     }
     this.group = this.localStorage.getElement('codeId') as string;
     this.chargerDonnees();

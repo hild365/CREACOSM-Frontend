@@ -50,7 +50,6 @@ export class AcceuilComponent {
            this.errorMessage = 'Erreur lors du démarrage de la partie. Veuillez réessayer.';
          }
        });
-    this.router.navigate(['/analyse']);
   }
 
 

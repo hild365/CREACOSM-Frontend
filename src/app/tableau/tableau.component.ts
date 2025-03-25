@@ -32,6 +32,10 @@ export class TableauComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    if(this.localStorage.getElement('codeId') === null){
+      this.router.navigate(['/']);
+      return;
+    }
     const tutorielDejaVu =
       this.localStorage.getElement('tutorielDejaVuTableau') || 'false';
     if (tutorielDejaVu === 'false') {
