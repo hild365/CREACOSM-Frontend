@@ -16,11 +16,11 @@
                 <p class="stockage-title">Frigo</p>
                 <div class="container test-list" cdkDropList #frigoList="cdkDropList" [cdkDropListData]="frigo"
                     [cdkDropListConnectedTo]="[itemsList, etagereList, placardList]" (cdkDropListDropped)="drop($event)"
-                    cdkDropListOrientation="horizontal">
+                    cdkDropListOrientation="mixed">
 
                     @for (item of frigo; track item) {
                         @if(item.correct){
-                            <div class="destination-box good-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
+                            <div class="destination-box good-guess" cdkDrag ><img src="assets/images/{{item.image}}" /></div>
                         } @else if (item.correct==false){
                             <div class="destination-box wrong-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
                         } @else {
@@ -33,7 +33,7 @@
                 <p class="stockage-title">Étagère</p>
                 <div class="container test-list" cdkDropList #etagereList="cdkDropList" [cdkDropListData]="etagere"
                     [cdkDropListConnectedTo]="[itemsList, frigoList, placardList]" (cdkDropListDropped)="drop($event)"
-                    cdkDropListOrientation="horizontal">
+                    cdkDropListOrientation="mixed">
 
                     @for (item of etagere; track item) {
                         @if(item.correct){
@@ -50,7 +50,7 @@
                 <p class="stockage-title">Placard fermé</p>
                 <div class="container test-list" cdkDropList #placardList="cdkDropList" [cdkDropListData]="placard"
                     [cdkDropListConnectedTo]="[itemsList, frigoList, etagereList]" (cdkDropListDropped)="drop($event)"
-                    cdkDropListOrientation="horizontal">
+                    cdkDropListOrientation="mixed">
                     @for (item of placard; track item) {
                         @if(item.correct){
                             <div class="destination-box good-guess" cdkDrag><img src="assets/images/{{item.image}}" /></div>
