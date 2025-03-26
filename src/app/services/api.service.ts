@@ -18,6 +18,7 @@ export class ApiService {
         analyzeIngredient: "analyze-ingredient",
         tryStorage: "try-storage",
         getStorages: "get-storages",
+      endgame: "end-game"
     };
 
     constructor(private http: HttpClient) {}
@@ -81,6 +82,10 @@ export class ApiService {
             ingredientId,
             storageId
         });
+    }
+    endGame(group: string): Observable<any> {
+      return this.post(`${this.routes.endgame}`,{
+        group});
     }
 
 }
