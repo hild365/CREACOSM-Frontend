@@ -1,8 +1,6 @@
 .title {
   display: flex;
   box-sizing: border-box;
-  position: absolute;
-  top: 10%;
 }
 
 .container {
@@ -11,10 +9,10 @@
 
 .result-container {
   width: 100%;
-  height: 50%;
+  height: auto;
   display: flex; /* Active le mode flexbox */
   justify-content: space-between; /* Espace les deux divs à gauche et à droite */
-  align-items: flex-start; /* Alignement en haut */
+  align-items: center; /* Alignement en haut */
   padding: 0 5%; /* Ajoute un padding pour éviter que les bords touchent l'écran */
   box-sizing: border-box; /* Empêche le padding de casser la mise en page */
   flex-direction: row;
@@ -35,7 +33,7 @@
 
 .stockage-container {
   width: 40%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,11 +100,6 @@
   background-color: var(--blue-secondary);
   box-shadow: 0 0 10px var(--blue-secondary);
 }
-.submit-button {
-  position: relative;
-  bottom: 10%;
-  z-index: 1;
-}
 
 .submit-button.loading::before {
   content: "";
@@ -147,16 +140,5 @@
   width: 100%; /* Même largeur que le container */
   box-sizing: border-box;
 }
-.navbar {
-  position: absolute;
-  bottom: 0%;
-}
 
-.button-container {
-  bottom: 13%;
-  position: absolute;
-}
-.copyrights {
-  position: absolute;
-  bottom: 9%;
-}
+

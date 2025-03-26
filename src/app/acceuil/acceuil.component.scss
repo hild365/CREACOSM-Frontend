@@ -21,30 +21,6 @@
     text-shadow: 0 0 10px #ffcc00;
   }
 
-  /* Styles pour l'input */
-  .code-input {
-    padding: 10px;
-    font-size: 1rem;
-    font-family: 75px/75px Monoton, cursive;
-    border: 2px solid var(--blue);
-    background: transparent;
-    color: var(--blue);
-    text-align: center;
-    margin-bottom: 10px;
-    transition: 0.3s;
-    box-shadow: 0 0 10px var(--blue);
-    width: 100%; /* Ajuster la largeur pour les écrans plus grands */
-    max-width: 400px; /* Augmenter la largeur maximale */
-    animation: fadeIn 0.8s forwards;
-  }
-
-  .code-input:focus {
-    outline: none;
-    background: var(--blue);
-    color: var(--white);
-    box-shadow: 0 0 20px var(--blue-secondary);
-  }
-
   .play-button {
     padding: 15px 30px;
     position: relative;

@@ -1,56 +1,20 @@
-.analyse-components {
+.analyse-components, app-drag-and-drop-item, app-number-selector,app-change-test {
   width: 100%;
-  height: calc(100% - 60px); /* Ajustez la hauteur pour tenir compte de la navbar */
-  overflow: hidden; /* Enlever la barre de défilement interne */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap:10px;
 }
 
-.title{
-  position: absolute;
-  top: 5%;
-}
-.button-container{
-  bottom: 10%;
-  position : absolute;
+
+.page-container {
+  padding:none;
 }
 
-/* Responsive styles */
-@media (max-width: 600px) {
-   .navbar > button {
-        font-size: 12px;
-    }
-
-    .navbar > button i {
-        font-size: 18px;
-    }
-
-}
-app-change-test{
-  bottom: 20%;
-  position : absolute;
-}
-
-app-drag-and-drop-item {
-    width: 100%;
-    margin-top : 400px
-}
 
 .submit-button {
   position: relative;
   bottom: 10%;
 }
-.copyrights{
-  position:absolute;
-  bottom: 7%;
-}
-.resultat-test{
-  position: absolute;
-  top: 38%;
-}
-.erreur{
-  position: absolute;
-  top:38%;
-}
+

@@ -9,8 +9,7 @@ import { response } from "express";
 })
 export class ApiService {
 
-
-    private url = "http://localhost:3000";
+    private url = `http://${window.location.hostname}:3000`;
 
     private routes = {
         getDiscoveredTable: "get-discovered-table",
