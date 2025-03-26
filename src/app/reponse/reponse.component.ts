@@ -77,13 +77,6 @@ export class ReponseComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<any[]>) {
-    console.log("📌 Événement Drag & Drop détecté !");
-  console.log("🔹 previousIndex:", event.previousIndex);
-  console.log("🔹 currentIndex:", event.currentIndex);
-  console.log("🔹 previousContainer:", event.previousContainer.id);
-  console.log("🔹 currentContainer:", event.container.id);
-  console.log("🔹 Contenu de la liste origine avant le changement:", event.previousContainer.data);
-  console.log("🔹 Contenu de la liste destination avant le changement:", event.container.data);
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -99,9 +92,7 @@ export class ReponseComponent implements OnInit {
         event.currentIndex
       );
     }
-    //event.container.data[event.currentIndex].correct=null;
-    console.log("✅ Contenu de la liste origine apres le changement:", event.previousContainer.data);
-    console.log("✅ Nouvelle liste direction après déplacement :", event.container.data);
+    event.container.data[event.currentIndex].correct=null;
   }
 
   validerReponses() {

@@ -3,7 +3,7 @@
        [cdkDropListData]="items"
        [cdkDropListConnectedTo]="[testList]"
        (cdkDropListDropped)="drop($event)"
-       cdkDropListOrientation="horizontal">
+       cdkDropListOrientation="mixed">
     @for (item of items; track item) {
       <div class="origin-box" cdkDrag><img src="assets/images/{{item.image}}"/><span>{{item.label}}</span></div>
     }

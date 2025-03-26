@@ -22,6 +22,8 @@ export class ApiService {
 
     constructor(private http: HttpClient) {}
 
+  
+
     // ****************************************************************************************************
 
     get(route: string): Observable<any> {
@@ -30,7 +32,7 @@ export class ApiService {
 
     post(route: string, data: any): Observable<any> {
         const headers = new HttpHeaders({
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         });
         return this.http.post(`${this.url}/${route}`, data, { headers, responseType: 'json' });
     }

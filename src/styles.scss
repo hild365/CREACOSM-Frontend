@@ -6,7 +6,8 @@
 }
 
 html, body {
-  height: 100%;
+  height: auto;
+  min-height:100vh;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -42,7 +43,8 @@ body {
     align-items: center;
     text-align: center;
     justify-content: center;
-    height: 100%;
+    height: auto;
+    min-height: 100vh;
     width:100vw;
     background: linear-gradient(135deg, var(--white), var(--blue-secondary));
     color: var(--blue);
