@@ -20,10 +20,12 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./analyse.component.scss'],
 })
 export class AnalyseComponent implements OnInit {
+
+  tutorialContent: string = "Bienvenue dans votre laboratoire. Vous pouvez ici simuler des tests sur des ingrédients pour obtenir leur état de conservation. Pour commencer, sélectionnez un type de test et une valeur, puis ajoutez l'ingrédient à analyser. Votre matériel vous permet de réaliser des expérimentations sur la température, la luminosité et le niveau d'humidité. Inutile de retenir les résultats : ceux-ci sont automatiquement enregistrés dans votre tableau.";
+
   donnees: any[] = [];
   ongletCourant: string = 'analyse';
   displayModal: boolean = false;
-  tutorialContent: string = 'Bienvenue sur la page analyse ...';
   erreur: string = "";
   group: string ="";
   resultatTest: any []=[];
