@@ -18,7 +18,7 @@ ARG BACKEND_PORT
 RUN sed -i "s/3001/${BACKEND_PORT}/g" src/environments/environment.ts
 
 # Build the Angular app for production
-RUN npm run build -- --prod
+RUN npm run build
 
 # Stage 2: Serve the app with nginx
 FROM nginx:alpine
