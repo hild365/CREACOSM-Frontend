@@ -15,7 +15,7 @@ COPY . .
 
 # Replace the backend port in the environment file
 ARG BACKEND_PORT
-RUN sed -i "s/3001/${BACKEND_PORT}/g" src/environments/environment.prod.ts
+RUN sed -i "s/3001/${BACKEND_PORT}/g" src/environments/environment.ts
 
 # Build the Angular app for production
 RUN npm run build -- --prod
