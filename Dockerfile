@@ -20,5 +20,7 @@ RUN sed -i "s/3001/${BACKEND_PORT}/g" src/environments/environment.ts
 # Build the Angular app for production
 RUN npm run build
 
+EXPOSE 4200
+
 # Start serving the Angular app
 CMD ["npm", "start"]

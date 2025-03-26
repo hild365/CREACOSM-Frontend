@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 export class ApiService {
   private port = environment.backendPort || 3001;
 
-  private url = `http://${window.location.hostname}:${this.port}`;
+  private url = `http://localhost:${this.port}`;
 
   private routes = {
     getDiscoveredTable: 'get-discovered-table',
