@@ -20,14 +20,5 @@ RUN sed -i "s/3001/${BACKEND_PORT}/g" src/environments/environment.ts
 # Build the Angular app for production
 RUN npm run build
 
-# Stage 2: Serve the app with nginx
-FROM nginx:alpine
-
-# Copy the Angular build output to the nginx html directory
-COPY --from=build /usr/src/app/dist/frontend /usr/share/nginx/html
-
-# Expose the port nginx runs on
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start serving the Angular app
+CMD ["npm", "start"]
