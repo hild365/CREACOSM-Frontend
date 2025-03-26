@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FenetreTutoComponent } from '../fenetre-tuto/fenetre-tuto.component';
 import { LocalStorageService } from '../services/local-storage.service';
 import { ApiService } from '../services/api.service';
-import { forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tableau',
@@ -79,6 +77,21 @@ export class TableauComponent implements OnInit {
           });
           this.ingredientsDiscoveries.push(ingredient);
         });
+
+        
+        // Mise à jour de l'ingrédient courant avec les nouvelles données
+        if (this.currentIngredient.id !== -1) {
+          this.currentIngredient = this.ingredientsDiscoveries.find(
+            (ingredient) => ingredient.id === this.currentIngredient.id
+          );
+        }
+        else {
+          this.currentIngredient = this.ingredientsDiscoveries[0];
+        }
+        this.localStorage.setElement(
+          'currentIngredient',
+          JSON.stringify(this.currentIngredient)
+        );
       },
       error: (error: any) => {
         console.error('Error getting ingredients', error);
